@@ -1,12 +1,14 @@
 # 💻 Exercícios Práticos - Java & Lógica
 
-<img align="right" src="https://user-images.githubusercontent.com/74038190/212750672-2f3f2b50-c84f-4ed8-a60a-849ae69ff9df.gif" width="200">
+<img align="right" src="https://private-user-images.githubusercontent.com/74038190/371756374-0bf134e2-c0ba-488b-bbd4-9300f2f77871.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzUyMjU1NDYsIm5iZiI6MTc3NTIyNTI0NiwicGF0aCI6Ii83NDAzODE5MC8zNzE3NTYzNzQtMGJmMTM0ZTItYzBiYS00ODhiLWJiZDQtOTMwMGYyZjc3ODcxLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA0MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNDAzVDE0MDcyNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWYxMjE3MzViZWQyZTYyZmE0MTY2YzZkZTFjNDMwMzU0OGVkY2IzYWQxY2I5NDAyNGI1MWJjODc2ZjAyY2VjNWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.CtrKiHWcZUbTeJJ7UTjhB4yv5BJmqKnVm2KpyCMn4sE" width="200">
 
 ### 📖 Visão Geral
 
 Este repositório centraliza a resolução de desafios práticos propostos durante a formação. O foco é documentar a evolução na lógica de programação, aplicação de Estruturas de Dados e boas práticas de Clean Code em Java.
 
----
+
+<br/>
+<br/>
 
 <img align="left" src="https://user-images.githubusercontent.com/74038190/216649426-0c2ee152-84d8-4707-85c4-27a378d2f78a.gif" width="200">
 
@@ -14,9 +16,9 @@ Este repositório centraliza a resolução de desafios práticos propostos duran
 
 A progressão dos exercícios segue um cronograma diário, priorizando:
 
-- **Versionamento Semântico:** Histórico de commits que narra a evolução do raciocínio.
-- **Granularidade:** Commits focados em etapas lógicas específicas.
-- **Integridade:** Código 100% autoral, focado no aprendizado individual.
+ **Versionamento Semântico:** Histórico de commits que narra a evolução do raciocínio. <br/>
+ **Granularidade:** Commits focados em etapas lógicas específicas.<br/>
+ **Integridade:** Código 100% autoral, focado no aprendizado individual.<br/>
 
 ---
 
