@@ -104,9 +104,7 @@ int resposta;
 
   // Método de sacar valor
   double retirar (double saque) {
-    boolean retorno = false;
-    double novo_valor;
-    while(retorno = false){
+  
       if ((qtd_saque > 0) && (saque < 1000) && (saque <= saldo)){
         System.out.println("");
         System.out.println(" ================================= RETIRADA ================================= ");
@@ -126,10 +124,8 @@ int resposta;
         System.out.println("Caro(a) sr(a). " + nome + ", o valor solicitado está acima do limite do seu saldo:");
         System.out.println("O valor atual do seu saldo é R$" + String.format("%.2f", saldo));
         System.out.println("O valor solicidado é R$" + String.format("%.2f", saque));
-        System.out.println("");
-        System.out.println();
       }
-    }
+
     return (saldo);
   }
 
