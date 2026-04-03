@@ -57,6 +57,8 @@ serratec_poo/
 |    01     | Simulador de Caixa Eletrônico com limites de saque. | [📁 /caixa_eletronico](./caixa_eletronico/) |
 |    02     |      Aguardando próximo desafio da disciplina.      | -                                           |
 
+<br/>
+
 **Para rodar qualquer um dos projetos localmente:**
 
 #### 1. Clone o repositório:
