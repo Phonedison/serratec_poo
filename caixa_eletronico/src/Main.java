@@ -1,29 +1,14 @@
 
+import java.util.ArrayList; //Clsse que implementa o Array
+import java.util.List; // importando comportamento de uma lista ordenada
 import java.util.Scanner;
-
-
-/*
-
-1 - Lógica e Estruturas de Controle
-
-Exercício: Simulador de Caixa Eletrônico (Apenas Lógica no main).
-
-Detalhes: Criar um menu com do-while e switch (1-Ver Saldo, 2-Depositar, 3-Sacar, 0-Sair).
-
-Regra de Negócio:
-- O caixa eletrônico tem um limite máximo de 3 saques diários. Se o usuário tentar um 4o
-saque, o sistema deve bloquear a operação informando "Limite de saques diários
-atingido".
-- O valor máximo por saque é de R$ 1.000,00, por questões de segurança.
-
-*/
 
 public class Main {
 // Delcarando variavel global //
     double saldo, novo_valor;
-    String nome;
+    int numero_titular;
     int qtd_saque = 3;
-    int resposta;
+   
 
     public static void main(String[] args) throws Exception {
       
@@ -36,10 +21,42 @@ public class Main {
   public void Execute() {
     Scanner sc = new Scanner(System.in);
 
+   
+    List<ContaBancaria> usuarios = new ArrayList<>(); //criar um array do tipo ContaBancaria
+
+    //dados para lista, simples para evitar de bugar:
+
+    usuarios.add(new ContaBancaria(0001,"Lucas da Silva"));
+    ContaBancaria usuario_encontrado = null; // variavel ContaBancaria 
+
+
     System.out.println("Olá, seja bem vindo ao BANCO.IA XD");
-    System.out.print("Poderia informar o seu nome: ");
-    nome = sc.next();
-    System.out.println("");
+    System.out.print("Poderia informar o seu número : ");
+    numero_titular = sc.nextInt();  
+     
+    for(ContaBancaria usuario: usuarios) { //Passa por toda a lista de ARRAY e busca o usuario informado
+        
+        if(numero_titular == usuario.numero) { //Se encontrar
+            usuario_encontrado = usuario; // variavel usuario_encontrado recebe o endereçamento / dados do objeto usuario
+            break; //força parar a procura;
+        }
+    }
+
+    if (usuario_encontrado != null) {
+        System.out.println("");
+    } else {
+
+    }
+    
+
+    sc.close();
+  }
+
+  void exibirMenuAplicacao (ContaBancaria usuario) {
+    
+    Scanner sc = new Scanner(System.in); //Atribuindo método de leitura
+    
+    int resposta; //criando variavel para utilizar a resposta do usuario
 
     do  {
     //Detalhes: Criar um menu com do-while e switch (1-Ver Saldo, 2-Depositar, 3-Sacar, 0-Sair).
@@ -59,103 +76,25 @@ public class Main {
 
         switch (resposta) {
             case 1:
-                verificar(saldo);
+                usuario.verificar();
                 break;
 
             case 2:
-                System.out.print(nome + " informe o valor que deseja adicionar: R$ ");
+                System.out.print(usuario.titular + " informe o valor que deseja adicionar: R$ ");
                 novo_valor = sc.nextDouble();
-                depositar(novo_valor);
+                usuario.depositar(novo_valor);
                 break;
 
             case 3:
-                System.out.print(nome + " informe o novo valor quedeseja retirar: R$ ");
+                System.out.print(usuario.titular  + " informe o novo valor quedeseja retirar: R$ ");
                 novo_valor = sc.nextDouble();
-                retirar(novo_valor);
+                usuario.sacar(novo_valor);
                 break;
 
             default:
-                System.out.println("Caro(a) sr(a). " + nome + ", valor invalidado!");
+                System.out.println("Caro(a) sr(a). " + usuario.titular + ", valor invalidado!");
         }
         
     } while ( resposta != 0);
-    sc.close();
   }
-
-  // Método de verificar o saldo 
-  double verificar (double valor) {
-
-      System.out.println(" ================================= SALDO ATUAL ================================= ");
-      System.out.println("");
-
-      System.out.println("Valor Atual : R$" + String.format("%.2f", valor));
-
-      System.out.println("");
-      System.out.println(" =============================================================================== ");
-       System.out.println("");
-      return valor;
-    }
-  
-  // Método de depositar valor
-  double depositar (double valor) {
-      System.out.println("");
-      System.out.println(" ================================= DEPOSITO ================================= ");
-      System.out.println("");
-
-      System.out.println("Valor a ser depositado : + R$" + String.format("%.2f", (valor)));
-      System.out.println("Valor antes do acrécimo : R$" + String.format("%.2f", (saldo)));
-      System.out.println("Valor Após a adição : R$" + String.format("%.2f", (saldo + valor)));
-
-      System.out.println("");
-      System.out.println(" ============================================================================ ");
-      System.out.println("");
-
-      return (saldo += valor);
-    }
-
-  // Método de sacar valor
-  double retirar (double saque) {
-    if ((qtd_saque > 0) && (saque < 1000) && (saque <= saldo)){
-        System.out.println("");
-        System.out.println(" ================================= RETIRADA ================================= ");
-        System.out.println("");
-
-        System.out.println("Valor a ser retirado : R$" + String.format("%.2f", (saque)));
-        System.out.println("Novo Valor Atual : R$" + String.format("%.2f", (saldo - saque)));
-
-        System.out.println("");
-
-        saldo -= saque;
-
-        System.out.println("Caro sr(a). "+ nome +", limite de saque atual: " + (--qtd_saque) +" vezes.");
-        System.out.println(" ============================================================================ ");
-        System.out.println("");
-
-    } else {
-
-        if (saque > 1000) {
-            System.out.println("");
-            System.out.println("O valor máximo por saque é de R$ 1.000,00, por questões de segurança.");
-            System.out.println("");
-        }
-
-        if (qtd_saque < 0) {
-            System.out.println("");
-            System.out.println("Caro(a) sr(a). " + nome + ", você atingiou o limite máximo de saque por dia!");
-            System.out.println("");
-        }
-
-        if(saque > saldo) {
-            System.out.println("");
-            System.out.println("Caro(a) sr(a). " + nome + ", o valor solicitado está acima do limite do seu saldo:");
-            System.out.println("O valor atual do seu saldo é R$" + String.format("%.2f", saldo));
-            System.out.println("O valor solicidado é R$" + String.format("%.2f", saque));
-            System.out.println("");
-        }
-    }
-     
-
-    return (saldo);
-  }
-
 }

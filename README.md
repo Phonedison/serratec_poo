@@ -6,7 +6,6 @@
 
 Este repositório centraliza a resolução de desafios práticos propostos durante a formação. O foco é documentar a evolução na lógica de programação, aplicação de Estruturas de Dados e boas práticas de Clean Code em Java.
 
-
 <br/>
 <br/>
 
@@ -16,9 +15,9 @@ Este repositório centraliza a resolução de desafios práticos propostos duran
 
 A progressão dos exercícios segue um cronograma diário, priorizando:
 
- **Versionamento Semântico:** Histórico de commits que narra a evolução do raciocínio. <br/>
- **Granularidade:** Commits focados em etapas lógicas específicas.<br/>
- **Integridade:** Código 100% autoral, focado no aprendizado individual.<br/>
+**Versionamento Semântico:** Histórico de commits que narra a evolução do raciocínio. <br/>
+**Granularidade:** Commits focados em etapas lógicas específicas.<br/>
+**Integridade:** Código 100% autoral, focado no aprendizado individual.<br/>
 
 ---
 
