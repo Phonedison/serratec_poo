@@ -40,11 +40,13 @@ Abaixo estão listados os desafios resolvidos, organizados por competência téc
 
 ```
 serratec_poo/
-├── 📁 caixa_eletronico       # Exercício 01
-│   ├── 📁 lib                # Bibliotecas externas (se houver)
-│   ├── 📁 src                # Código-fonte (.java)
-│   └── 📝 README.md          # Documentação específica do desafio
-└── 📝 README.md              # Documentação principal
+├── 📁 caixa_eletronico             # Exercícios 01 e 02
+│   ├── 📁 lib                      # Bibliotecas externas (se houver)
+│   ├── 📁 src                      # Código-fonte (.java)
+│   │   ├── ☕ ContaBancaria.java   # classe -> Exercicio 02 (ContaBancaria)
+│   │   └── ☕ Main.java            # Arquivo Principal -> Ex. 01 e parte 02
+│   └── 📝 README.md                # Documentação específica do desafio (Ex. 01 e 02)
+└── 📝 README.md                    # Documentação principal
 ```
 
 ---
@@ -53,10 +55,10 @@ serratec_poo/
 
 ### 📂 Índice de Exercícios
 
-| Exercício |                      Descrição                      | Caminho do Projeto                           |
-| :-------: | :-------------------------------------------------: | :------------------------------------------- |
-|    01     | Simulador de Caixa Eletrônico com limites de saque. | [📄 Main.java](./caixa_eletronico/Main.java) |
-|    02     |      Criação e utilização de Classes / Objetos      | [📚 Usuario_banco.java]()                    |
+| Exercício |                      Descrição                      | Caminho do Projeto                                                 |
+| :-------: | :-------------------------------------------------: | :----------------------------------------------------------------- |
+|    01     | Simulador de Caixa Eletrônico com limites de saque. | [📄 Main.java](./caixa_eletronico/Main.java)                       |
+|    02     |      Criação e utilização de Classes / Objetos      | [📚 ContaBancaria.java](./caixa_eletronico/src/ContaBancaria.java) |
 
 <br/>
 

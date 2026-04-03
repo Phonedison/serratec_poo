@@ -7,7 +7,7 @@ public class ContaBancaria {
 
 /* Método para cição de nova conta*/ 
 public ContaBancaria(int numero, String titular) {
-  
+
   this.numero = numero;
   this.titular = titular;
   this.saldo = 50.0;
@@ -50,14 +50,16 @@ public ContaBancaria(int numero, String titular) {
         System.out.println("");
         System.out.println(" ================================= RETIRADA ================================= ");
         System.out.println("");
+        // Retira o valor do saldo
+        saldo -= valor;
 
         System.out.println("Valor a ser retirado : R$" + String.format("%.2f", (valor)));
-        System.out.println("Novo Valor Atual : R$" + String.format("%.2f", (saldo - valor)));
+        System.out.println("Novo Valor Atual : R$" + String.format("%.2f", (saldo)));
 
         System.out.println("");
         
-        // Retira o valor do saldo
-        saldo -= valor;
+      
+      
 
         System.out.println("Caro sr(a). " + titular + ", limite de saque atual: " + (--qtd_saque) +" vezes.");
         System.out.println(" ============================================================================ ");
