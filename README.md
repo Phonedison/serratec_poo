@@ -52,10 +52,10 @@ serratec_poo/
 
 ### 📂 Índice de Exercícios
 
-| Exercício |                      Descrição                      | Caminho do Projeto                          |
-| :-------: | :-------------------------------------------------: | :------------------------------------------ |
-|    01     | Simulador de Caixa Eletrônico com limites de saque. | [📁 /caixa_eletronico](./caixa_eletronico/) |
-|    02     |      Aguardando próximo desafio da disciplina.      | -                                           |
+| Exercício |                      Descrição                      | Caminho do Projeto                           |
+| :-------: | :-------------------------------------------------: | :------------------------------------------- |
+|    01     | Simulador de Caixa Eletrônico com limites de saque. | [📄 Main.java](./caixa_eletronico/Main.java) |
+|    02     |      Criação e utilização de Classes / Objetos      | [📚 Usuario_banco.java]()                    |
 
 <br/>
 
@@ -86,4 +86,3 @@ javac src/\*.java && java -cp src Main
 <a href="https://github.com/Phonedison">
   <img src ="https://avatars.githubusercontent.com/u/7592603?v=4" width="250" />
 </a>
-```

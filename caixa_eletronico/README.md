@@ -1,4 +1,4 @@
-<img align="left" src="https://i.giphy.com/1uxiEScntiYAwZ2Joy.webp" width="200">
+<img align="left" src="https://i.giphy.com/1uxiEScntiYAwZ2Joy.webp" width="150">
 
 # Exercício: Simulador de Caixa Eletrônico
 
@@ -6,6 +6,7 @@ Este exercício consiste na implementação de um sistema de terminal para opera
 
 ---
 
+<br/>
 <br/>
 
 ## 📌 Objetivo
