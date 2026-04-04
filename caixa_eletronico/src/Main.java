@@ -45,7 +45,7 @@ public class Main {
         if (usuario_encontrado == null) {
 
             System.out.println("");
-            System.out.println(numero_titular + "não encontrado!");
+            System.out.println("Titular não encontrado!");
             System.out.println("Deseja se cadastrar ?");
             System.out.println("");
             System.out.println("==========================================");
@@ -54,22 +54,23 @@ public class Main {
             System.out.println("==========================================");
             System.out.println("");
             System.out.print("Informe a sua resposta : ");
-            System.out.println("");
             int info = sc.nextInt();
+            System.out.println("");
 
         switch(info){
 
         case 1:
-            criarConta(usuarios, sc);
+            criarConta(usuarios, sc); //Chama o método de criação do usuário
             break;
         
-            case 2:
+            case 2: //Só sai do projeto
             break;
         }
 
         } else {
             System.out.println("");
-            exibirMenuAplicacao(usuario_encontrado);
+            System.out.println("Seja bem vindo " + usuario_encontrado.titular + "!");
+            exibirMenuAplicacao(usuario_encontrado); //exibe a tela de login para o usuario.
         }
 
 
@@ -110,9 +111,13 @@ public class Main {
                 break;
 
             case 3:
-                System.out.print(usuario.titular  + " informe o novo valor quedeseja retirar: R$ ");
+                System.out.print(usuario.titular  + " informe o novo valor que deseja retirar: R$ ");
                 novo_valor = sc.nextDouble();
-                usuario.sacar(novo_valor);
+                usuario.sacar(novo_valor, sc);
+                break;
+            case 0:
+                System.out.print("Caro(a) " + usuario.titular + " obrigado por utilizar BANCO.IA");
+                System.out.print("Finalizando serviço!");
                 break;
 
             default:
@@ -134,5 +139,6 @@ public class Main {
     lista_usuario.add(nova_conta);
 
     System.out.println("Conta de " + nome_conta + " criada!");
+    exibirMenuAplicacao(nova_conta);
     }
 }

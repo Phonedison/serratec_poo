@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ContaBancaria {
 
   int numero;
@@ -44,48 +46,62 @@ public ContaBancaria(int numero, String titular) {
       System.out.println("");
   }
 
-  void sacar(double valor) {
+  void sacar(double valor, Scanner sc) {
+    int retorno = 1;
+    double saque = valor;
+    while(retorno == 1) {
+        if ((qtd_saque > 0) && (saque <= 1000) && (saque <= saldo)) {
+            System.out.println("");
+            System.out.println(" ================================= RETIRADA ================================= ");
+            System.out.println("");
+            // Retira o valor do saldo
+            saldo -= saque;
 
-    if ((qtd_saque > 0) && (valor <= 1000) && (valor <= saldo)) {
-        System.out.println("");
-        System.out.println(" ================================= RETIRADA ================================= ");
-        System.out.println("");
-        // Retira o valor do saldo
-        saldo -= valor;
+            System.out.println("Valor retirado : R$" + String.format("%.2f", (saque)));
+            System.out.println("Valor Atual na conta : R$" + String.format("%.2f", (saldo)));
 
-        System.out.println("Valor a ser retirado : R$" + String.format("%.2f", (valor)));
-        System.out.println("Novo Valor Atual : R$" + String.format("%.2f", (saldo)));
+            System.out.println("");  
 
-        System.out.println("");
+            System.out.println("Caro sr(a). " + titular + ", limite de saque atual: " + (qtd_saque - 1) +" vezes.");
+            System.out.println(" ============================================================================ ");
+            System.out.println("");
+
+        } else {
+
+            if (saque > 1000) {
+                System.out.println("");
+                System.out.println("O valor máximo por saque é de R$ 1.000,00, por questões de segurança.");
+                System.out.println("");
+            }
+
+            if (qtd_saque <= 0) {
+                System.out.println("");
+                System.out.println("Caro(a) sr(a). " + titular + ", você atingiou o limite máximo de saque por dia!");
+                System.out.println("Tente novamente outro dia!");
+                System.out.println("");
+                
+            }
+
+            if (saque > saldo) {
+                System.out.println("");
+                System.out.println("Caro(a) sr(a). " + titular + ", o valor solicitado está acima do limite do seu saldo:");
+                System.out.println("O valor atual do seu saldo é R$" + String.format("%.2f", saldo));
+                System.out.println("O valor solicidado é R$" + String.format("%.2f", saque));
+                System.out.println("Saque não realizado");
+                System.out.println("");
+               
+            }
+        }
+        System.err.println("");
+        System.err.println("Deseja tentar realizar uma nova transição ?");
+        System.err.print("Digite 1 para Sim ou 2 para Não: ");
+        retorno = sc.nextInt();
         
-      
-      
-
-        System.out.println("Caro sr(a). " + titular + ", limite de saque atual: " + (--qtd_saque) +" vezes.");
-        System.out.println(" ============================================================================ ");
-        System.out.println("");
-
-    } else {
-
-        if (valor > 1000) {
-            System.out.println("");
-            System.out.println("O valor máximo por saque é de R$ 1.000,00, por questões de segurança.");
-            System.out.println("");
-        }
-
-        if (qtd_saque <= 0) {
-            System.out.println("");
-            System.out.println("Caro(a) sr(a). " + titular + ", você atingiou o limite máximo de saque por dia!");
-            System.out.println("Tente novamente outro dia!");
-            System.out.println("");
-        }
-
-        if (valor > saldo) {
-            System.out.println("");
-            System.out.println("Caro(a) sr(a). " + titular + ", o valor solicitado está acima do limite do seu saldo:");
-            System.out.println("O valor atual do seu saldo é R$" + String.format("%.2f", saldo));
-            System.out.println("O valor solicidado é R$" + String.format("%.2f", valor));
-            System.out.println("");
+        if (retorno == 1) {
+            System.err.println("");
+            System.err.print("Informe o novo valor que deseja retirar: R$");
+            saque = sc.nextDouble();
+            qtd_saque--;
         }
     }
   }
