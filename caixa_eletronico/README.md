@@ -1,4 +1,4 @@
-<img align="left" src="https://i.giphy.com/1uxiEScntiYAwZ2Joy.webp" width="150">
+<img align="left" src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200">
 
 # Exercício: Simulador de Caixa Eletrônico
 
@@ -8,12 +8,14 @@ Este projeto documenta a evolução de um sistema de terminal bancário, partind
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 ## Fase 1: Lógica Estruturada
 
 ### 📌 Objetivo
 
-A pratica e utilização de laços de repetição (while / do while) e estruturas de seleção (switch / case) para a criação de menus interativos em ambiente de console.
+- A pratica e utilização de laços de repetição (while / do while) e estruturas de seleção (switch / case) para a criação de menus interativos em ambiente de console.
 
 ### ⚙️ Funcionalidades
 
@@ -41,6 +43,8 @@ A lógica foi encapsulada na classe ContaBancaria, que agora gerencia seu própr
   - sacar(double valor): Realiza as validações de segurança antes de subtrair do saldo.
 
 ---
+
+<img align="right" src="https://private-user-images.githubusercontent.com/74038190/240885248-ff1b5f32-9420-4dde-b2b9-ed2c0aa17459.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzU0MjIyMjcsIm5iZiI6MTc3NTQyMTkyNywicGF0aCI6Ii83NDAzODE5MC8yNDA4ODUyNDgtZmYxYjVmMzItOTQyMC00ZGRlLWIyYjktZWQyYzBhYTE3NDU5LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA0MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNDA1VDIwNDUyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVhYmE3OGIxN2QwMzJiN2I3YjNiNjEzMzAzZmJiOTBjYzEzZjNlMTFiOGM2OTIwNjBkMzM1ZTNmZjQ2NzQ0NWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.yoBqkOpgO8WcHDJhkvLrFyyXcerZOBY97n51wwtWZcc" width="400">
 
 ### 🛡️ Regras (Consolidadas)
 
