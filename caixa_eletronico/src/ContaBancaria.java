@@ -2,10 +2,9 @@ import java.util.Scanner;
 
 public class ContaBancaria {
 
-  int numero;
+  int numero, qtd_saque;
   String titular;
   double saldo;
-  int qtd_saque;
 
 /* Método para cição de nova conta */ 
 public ContaBancaria(int numero, String titular) {

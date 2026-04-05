@@ -4,54 +4,45 @@ import java.util.Scanner;
 
 public class Caixa {
 
-  void Execute() {
+  public void Execute() {
 
-    int numero_titular;
-    Scanner sc = new Scanner(System.in);
+    int numeroTitular; // renomeei a variavel para manter o padrão da linguagem de Java
+        try (Scanner sc = new Scanner(System.in)) {
 
+            List<ContaBancaria> usuarios = new ArrayList<>(); //Criar um array do tipo ContaBancaria
 
-    List<ContaBancaria> usuarios = new ArrayList<>(); //Criar um array do tipo ContaBancaria
+            //dados para lista, simples para evitar de bugar:
+            usuarios.add(new ContaBancaria(0001,"Lucas da Silva"));
+            
+            ContaBancaria usuarioEncontrado = null; // variavel ContaBancaria 
 
-    //dados para lista, simples para evitar de bugar:
-    usuarios.add(new ContaBancaria(0001,"Lucas da Silva"));
-    
-    ContaBancaria usuario_encontrado = null; // variavel ContaBancaria 
+            System.out.println("Olá, seja bem vindo ao BANCO.IA XD");
+            System.out.print("Poderia informar o seu número : ");
+            numeroTitular = sc.nextInt();  
 
-    System.out.println("Olá, seja bem vindo ao BANCO.IA XD");
-    System.out.print("Poderia informar o seu número : ");
-    numero_titular = sc.nextInt();  
+                for(ContaBancaria usuario: usuarios) { // Passa por toda a lista 'usuários' utilizando o 'usuario' como 'index'
 
-        for(ContaBancaria usuario: usuarios) { // Passa por toda a lista 'usuários' utilizando o 'usuario' como 'index'
+                    if(numeroTitular == usuario.numero) { // Checa se no index está o valor de 'numeroTitular' é igual a 'usuario.numero'
+                        usuarioEncontrado = usuario; // variavel usuarioEncontrado armazena os valores do 'objeto usuario escolhido' 
+                        break; //força a procura parar 
+                    }
+                }
+                
+            menuCriacaoUsuario(usuarioEncontrado, usuarios, sc);
 
-            if(numero_titular == usuario.numero) { // Checa se no index está o valor de 'numero_titular' é igual a 'usuario.numero'
-                usuario_encontrado = usuario; // variavel usuario_encontrado armazena os valores do 'objeto usuario escolhido' 
-                break; //força a procura parar 
-            }
+            sc.close();
+
+        } catch (Exception error){
+            System.err.println(error);
         }
-        
-       menuCriacaoUsuario(usuario_encontrado,usuarios, sc);
-
-    sc.close();
     }
 
-    void exibirMenuAplicacao (ContaBancaria usuario, Scanner sc) {
+    private void exibirMenuAplicacao (ContaBancaria usuario, Scanner sc) {
         int resposta = 0; //criando a variavel para utilizar a resposta do usuario
-         double novo_valor;
+        double novo_valor;
         do  {
-            //Detalhes: Criar um menu com do-while e switch (1-Ver Saldo, 2-Depositar, 3-Sacar, 0-Sair).
-            System.out.println("");
-            System.out.println("Escolha uma das opções abaixo!");
-            System.out.println("");
-            System.out.println("==========================================");
-            System.out.println("=   1 - Para 'checar o seu saldo'        =");
-            System.out.println("=   2 - Para 'depositar um valor'        =");
-            System.out.println("=   3 - Para 'sacar o valor'             =");
-            System.out.println("= ====================================== =");
-            System.out.println("=   0 - Para sair da aplicação           =");
-            System.out.println("==========================================");
-            System.out.println("");
-            System.out.print("Informe a sua escolha: ");
-            resposta = sc.nextInt();
+            
+            menuPrincipal(resposta, sc);
 
         switch (resposta) {
             case 1 -> {
@@ -86,7 +77,7 @@ public class Caixa {
         } while ( resposta != 0);
     }
 
-    void criarConta (List<ContaBancaria> lista_usuario, Scanner sc) {
+    private void criarConta (List<ContaBancaria> lista_usuario, Scanner sc) {
 
         System.out.print("Digite o id da conta: ");
         int numero_conta = sc.nextInt();
@@ -102,9 +93,9 @@ public class Caixa {
     
     }
 
-    void menuCriacaoUsuario(ContaBancaria usuario_encontrado, List<ContaBancaria> usuarios, Scanner sc) {
+   private void menuCriacaoUsuario(ContaBancaria usuarioEncontrado, List<ContaBancaria> usuarios, Scanner sc) {
         
-      if (usuario_encontrado == null) { // se não for encontrado, abre a tela de criação de usuário
+      if (usuarioEncontrado == null) { // se não for encontrado, abre a tela de criação de usuário
 
             System.out.println("");
             System.out.println("Titular não encontrado!");
@@ -125,18 +116,40 @@ public class Caixa {
                 criarConta(usuarios, sc); //Chama o método de criação do usuário
             } 
 
-            case 2 -> {} // Vendo a possibilidade de novos métodos
+            case 2 -> {
+                System.out.println("Ok, projeto Conta Bancárias finalizado!");
+                break;
+            } // Vendo a possibilidade de novos métodos
         }  //Só sai do projeto
       
         
         } else {
             System.out.println("");
-            System.out.println("Seja bem vindo " + usuario_encontrado.titular + "!");
-            exibirMenuAplicacao(usuario_encontrado, sc); //exibe a tela de login para o usuario.
+            System.out.println("Seja bem vindo " + usuarioEncontrado.titular + "!");
+            exibirMenuAplicacao(usuarioEncontrado, sc); //exibe a tela de login para o usuario.
         } 
     }
 
-    String mensagemTransicao (String nome, String acao) {
+    private String mensagemTransicao (String nome, String acao) {
         return ("Caro(a) " + nome + " informe o valor que deseja " + acao + ": R$");
+    }
+
+    private int menuPrincipal(int resposta, Scanner sc){
+         //Detalhes: Criar um menu com do-while e switch (1-Ver Saldo, 2-Depositar, 3-Sacar, 0-Sair).
+            System.out.println("");
+            System.out.println("Escolha uma das opções abaixo!");
+            System.out.println("");
+            System.out.println("==========================================");
+            System.out.println("=   1 - Para 'checar o seu saldo'        =");
+            System.out.println("=   2 - Para 'depositar um valor'        =");
+            System.out.println("=   3 - Para 'sacar o valor'             =");
+            System.out.println("= ====================================== =");
+            System.out.println("=   0 - Para sair da aplicação           =");
+            System.out.println("==========================================");
+            System.out.println("");
+            System.out.print("Informe a sua escolha: ");
+            resposta = sc.nextInt();
+
+            return resposta;
     }
 }
