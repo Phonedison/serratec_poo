@@ -1,4 +1,6 @@
-<img align="left" src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="200">
+<img src="https://private-user-images.githubusercontent.com/74038190/240304579-c288471c-be67-4fbb-af44-1c63ee9ed280.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzU0MjI4NjksIm5iZiI6MTc3NTQyMjU2OSwicGF0aCI6Ii83NDAzODE5MC8yNDAzMDQ1NzktYzI4ODQ3MWMtYmU2Ny00ZmJiLWFmNDQtMWM2M2VlOWVkMjgwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA0MDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNDA1VDIwNTYwOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTljZWU1MjI0NzE4MzNkM2U1NDc3YmQyNjNmYTYzYTcwNThmNDg2Yjg3NjczNGJmOTYzNzQxM2MwZjM1MmU3YTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.M7mMfF2nWekhIJTLvnl2JL-QeWlE9U1Ica30eCopLw4"/>
+
+<br/>
 
 # Exercício: Simulador de Caixa Eletrônico
 
@@ -6,10 +8,7 @@ Este projeto documenta a evolução de um sistema de terminal bancário, partind
 
 ---
 
-<br/>
-<br/>
-<br/>
-<br/>
+<img src="https://github.com/user-attachments/assets/fddcdbcd-5ea2-4416-9f59-ca7fd9394aca"/>
 
 ## Fase 1: Lógica Estruturada
 
