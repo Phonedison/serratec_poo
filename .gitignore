@@ -1,0 +1,17 @@
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.metadata/
+.project
+.classpath
+.settings/
+
+**/lib/*.jar
+
+# Pasta de projeto específica
+folha_pagamento/

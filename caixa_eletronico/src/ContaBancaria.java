@@ -53,7 +53,6 @@ public class ContaBancaria implements Contas {
     this.qtd_saque = 3;
   }
 
-
   /* Declarando os métodos com base na interface 'interfaces/Contas' e alterando os seus valores. */
   @Override
   public void depositar(double valor) {
@@ -84,12 +83,13 @@ public class ContaBancaria implements Contas {
           
           // Retira o valor do saldo
          setSaldo(getSaldo() - saque);
+         setQtd_saque();
 
           System.out.println("Valor retirado : R$" + String.format("%.2f", (saque)));
           System.out.println("Valor Atual na conta : R$" + String.format("%.2f", (getSaldo())));
           System.out.println("");  
           System.out.println("Caro sr(a). " + getTitular() + ", limite de saque atualizado!");
-          System.err.println("Você pode realizar mais " + (getQtd_saque() - 1) +" transições.");
+          System.out.println("Você pode realizar mais " + (getQtd_saque()) +" transições.");
           conteudo.separadorTexto();
 
         } else {
@@ -118,7 +118,7 @@ public class ContaBancaria implements Contas {
               conteudo.separadorTexto();
           }
         }
-        System.err.println();
+        System.out.println();
         Confirmacao menu = new Confirmacao();
         retorno = menu.menuConfirmacao(sc,"Você deseja Continuar ?" );
         
@@ -128,7 +128,6 @@ public class ContaBancaria implements Contas {
         if (retorno == 1) {
           System.out.print("Informe o novo valor que deseja retirar: R$");
           saque = sc.nextDouble();
-          setQtd_saque();
           conteudo.separadorTexto();
 
         }
