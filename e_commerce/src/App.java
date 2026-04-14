@@ -1,49 +1,30 @@
-import entidades.ItemPedido;
+
 import entidades.Pedido;
 import entidades.Produto;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import user.Cliente;
 import user.Endereco;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // Pedido produto_1 = new Pedido(1, LocalDate.now());
-        // Pedido produto_2 = new Pedido(2, LocalDate.now());
-        // Pedido produto_3 = new Pedido(3, LocalDate.now());
+        Produto geladeira = new Produto("Geladeira", 1500.00);
+        Produto fogao = new Produto("Fogão", 800.00);
+        Produto microondas = new Produto("Microondas", 400.00);
+        Produto fone = new Produto("Fone de ouvido", 15.00);
 
-        Produto geladeira = new Produto("geladeira", 5000.00);
-        Produto fogao = new Produto("fogao", 2500.00);
-        Produto foneOuvido = new Produto("Fone de ouvido", 15.00);
+        Endereco endereco = new Endereco("Rua Fernando", "Glória", "Petrópolis");
 
-        ItemPedido pedido_1 = new ItemPedido(2, foneOuvido);
-        ItemPedido pedido_2 = new ItemPedido(1, geladeira);
-        ItemPedido pedido_3 = new ItemPedido(1, fogao);
+        Cliente cliente = new Cliente("Lucas", endereco);
 
-        Endereco endereco_1 = new Endereco("Rua fernando", "Bairro da Glória", "Petropolis");
-        Endereco endereco_2 = new Endereco("Paqueta", "Bairro Seilá", "Meu deus");
+        Pedido pedido = new Pedido(1, LocalDate.now(), cliente);
 
-        List<ItemPedido> item_cliente_1 = new ArrayList<>();
-        item_cliente_1.add(pedido_1);
-        item_cliente_1.add(pedido_2);
+        pedido.adicionarProduto(2, fone);
+        pedido.adicionarProduto(1, geladeira);
+        pedido.adicionarProduto(1, fogao);
 
-        List<ItemPedido> item_cliente_2 = new ArrayList<>();
-        item_cliente_2.add(pedido_1);
-        item_cliente_2.add(pedido_3);
+        cliente.adicionarPedido(pedido);
 
-        Cliente cliente_1 = new Cliente("Lucas", endereco_1, item_cliente_1);
-        Cliente cliente_2 = new Cliente("Lamas", endereco_2, item_cliente_2);
-
-        System.out.println(cliente_1.toString());
-        String teste = (cliente_1.toString());
-        System.out.println("");
-        System.out.println(cliente_2.toString());
-        System.out.println("");
-
-        Pedido pedido = new Pedido(1, LocalDate.now(), cliente_1);
-        pedido.adicionarProduto(foneOuvido, 2);
-        pedido.adicionarProduto(geladeira, 1);
+        System.out.println(cliente);
         pedido.fecharPedido();
     }
 }

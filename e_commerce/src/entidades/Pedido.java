@@ -2,7 +2,6 @@ package entidades;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import user.Cliente;
 
@@ -20,97 +19,39 @@ public class Pedido {
     this.cliente = cliente;
   }
 
-  public Integer getNumeroPedido() {
-    return numeroPedido;
+  public void adicionarProduto(Integer qtd, Produto produto) {
+    listaItens.add(new ItemPedido(qtd, produto));
   }
 
-  public void setNumeroPedido(Integer numeroPedido) {
-    this.numeroPedido = numeroPedido;
-  }
-
-  public LocalDate getDataPedido() {
-    return dataPedido;
-  }
-
-  public void setDataPedido(LocalDate dataPedido) {
-    this.dataPedido = dataPedido;
-  }
-
-  public Double getTotal() {
+  public double calcularValorTotal() {
+    double total = 0.0;
+    for (ItemPedido item : listaItens) {
+      total += item.calcularSubtotal();
+    }
     return total;
   }
 
-  public void setTotal(Double total) {
-    this.total = total;
-  }
-
-  public List<ItemPedido> getListaItens() {
-    return Collections.unmodifiableList(this.listaItens);
-  }
-
-  public void setListaItens(List<ItemPedido> listaItens) {
-    this.listaItens = listaItens;
-  }
-
-  public void adicionarProduto(Produto produto, Integer qtd) {
-
-    ItemPedido item = new ItemPedido(qtd, produto);
-    this.listaItens.add(item);
-    this.total += item.getSubtotal();
-
-  }
-
-  public void calcularTotalItens() {
-    double total = 0.0;
-    for (ItemPedido item : this.listaItens) {
-      total += item.calcularSubtotal();
-    }
-    this.total = total;
-  }
-
   public void fecharPedido() {
-    calcularTotalItens();
-    Double frete = (this.total < 250.0) ? 0.0 : 25.0;
-    this.entrega_total = this.total + frete;
+    double frete = (calcularValorTotal() >= 250.0) ? 0.0 : 25.0;
+    double totalFinal = calcularValorTotal() + frete;
+    int totalItens = 0;
 
-    System.out.println("===== RECIBO =====");
-    System.out.println("Numero do Pedido: " + numeroPedido);
-    System.out.println("Data do Pedido: " + LocalDate.now());
-    System.out.println("Cliente: " + cliente.getNome());
-
-    System.out.println("===== ITENS DO PEDIDO =====");
-    for (ItemPedido item : listaItens) {
-      System.out.println(" ");
-      System.out.println("Nome Do Produto: " + item.getProduto().getNome());
-      System.out.println("Preço Da Unidade: " + item.getProduto().getValor());
-      System.out.println(" ");
-    }
-
-    System.out.println("=========================");
-    System.out.println("Total dos Itens: " + this.listaItens.size());
-    System.out.println("Frete : " + frete);
-    System.out.println("Total Da Compra: " + this.entrega_total);
-    System.out.println("=========================");
-  }
-
-  @Override
-  public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Pedido nº: ")
-        .append(this.numeroPedido)
-        .append(" | Data: ")
-        .append(this.dataPedido)
-        .append("\n==========================\n");
+    sb.append(" ==== RECIBO DE COMPRA ====\n")
+        .append("Pedido: ").append(this.numeroPedido).append("\n")
+        .append("Data: ").append(this.dataPedido).append("\n")
+        .append(cliente.getNome()).append("\n\n").append(" --- ITENS --- \n\n");
 
-    for (Object item : listaItens) {
-      sb.append(item.toString()).append("\n");
+    for (ItemPedido item : listaItens) {
+      sb.append(item.toString());
+      totalItens += item.getQtdSolicitada();
     }
 
-    sb.append("==========================\n")
-        .append("TOTAL DO PEDIDO R$: ")
-        .append(String.format("%.2f\n", this.entrega_total));
+    sb.append("\nTotal de Itens: ").append(totalItens)
+        .append(String.format("\nTotal: R$%.2f", calcularValorTotal()))
+        .append("\nFrete: R$ ").append(String.format("%.2f", frete))
+        .append("\nTotal Final: R$ ").append(String.format("%.2f", totalFinal)).append("\n");
 
-    return sb.toString();
+    System.out.println(sb.toString());
   }
-
 }
