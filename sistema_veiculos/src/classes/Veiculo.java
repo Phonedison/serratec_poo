@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public abstract sealed class Veiculo implements Fretavel, Tributavel permits Caminhao, CarroPasseio {
 
   private final String placa;
-  private final String marca;
+  protected final String marca;
   protected final int anoFabricacao;
   protected double valorLocacaoDiaria;
   protected double precoFipe;
