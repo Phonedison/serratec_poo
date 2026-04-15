@@ -19,7 +19,7 @@ public final class Caminhao extends Veiculo {
       System.out.println("Carga acima da capacidade! Aplicando taxa de 10%.");
       valorTotal *= 1.1;
     }
-    System.out.println("Valor total do aluguel: " + valorTotal);
+    System.out.println("Valor total do aluguel: R$" + String.format("%.2f", valorTotal));
   }
 
   @Override
