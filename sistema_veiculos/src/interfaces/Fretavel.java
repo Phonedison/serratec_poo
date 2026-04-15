@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface Fretavel {
-  public void alugarVeiculo(double pesoCarga, int dias);
+  public double alugarVeiculo(double pesoCarga, int dias);
 }

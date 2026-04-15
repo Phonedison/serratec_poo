@@ -9,25 +9,21 @@ public final class CarroPasseio extends Veiculo {
   }
 
   @Override
-  public void calcularIpva() {
+  public double calcularIpva() {
 
-    double ipva;
     int idade = LocalDate.now().getYear() - super.anoFabricacao;
 
-    if (idade > 20) {
-      ipva = 0.0;
-
-    } else {
-      ipva = super.precoFipe * 0.04;
-    }
-
-    System.out.println("Valor do IPVA: R$" + String.format("%.2f", ipva));
+    return ((idade > 20) ? 0.0 : super.precoFipe * 0.04);
   }
 
   @Override
-  public void alugarVeiculo(double pesoCarga, int dias) {
-    double valorTotal = valorLocacaoDiaria * dias;
-    System.out.println("Valor total do aluguel: R$" + String.format("%.2f", valorTotal));
+  public double alugarVeiculo(double pesoCarga, int dias) {
+
+    if (dias <= 0) {
+      throw new RuntimeException("O número de dias deve ser maior que zero.");
+    }
+
+    return valorLocacaoDiaria * dias;
   }
 
 }

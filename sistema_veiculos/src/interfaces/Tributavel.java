@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface Tributavel {
-  void calcularIpva();
+  double calcularIpva();
 }

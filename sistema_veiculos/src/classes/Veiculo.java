@@ -15,23 +15,23 @@ public abstract sealed class Veiculo implements Fretavel, Tributavel permits Cam
   public Veiculo(String placa, String marca, int anoFabricacao, double valorLocacaoDiaria, double precoFipe) {
 
     if (placa == null || placa.isEmpty()) {
-      throw new IllegalArgumentException("A placa do veículo não pode ser nula ou vazia.");
+      throw new RuntimeException("A placa do veículo não pode ser nula ou vazia.");
     }
 
     if (valorLocacaoDiaria < 0) {
-      throw new IllegalArgumentException("O valor de locação diária não pode ser negativo.");
+      throw new RuntimeException("O valor de locação diária não pode ser negativo.");
     }
 
     if (precoFipe < 0) {
-      throw new IllegalArgumentException("O preço Fipe não pode ser negativo.");
+      throw new RuntimeException("O preço Fipe não pode ser negativo.");
     }
 
     if (anoFabricacao > LocalDate.now().getYear()) {
-      throw new IllegalArgumentException("Ano de Fabricação inválido.");
+      throw new RuntimeException("Ano de Fabricação inválido.");
     }
 
     if (marca == null || marca.isEmpty()) {
-      throw new IllegalArgumentException("A marca do veículo não pode ser nula ou vazia.");
+      throw new RuntimeException("A marca do veículo não pode ser nula ou vazia.");
     }
 
     this.placa = placa;
