@@ -2,18 +2,21 @@ package classes;
 
 import interfaces.Fretavel;
 import interfaces.Tributavel;
-import veiculos.Caminhao;
 
-public abstract sealed class Veiculo implements Fretavel, Tributavel permits Caminhao {
+public abstract sealed class Veiculo implements Fretavel, Tributavel permits Caminhao, CarroPasseio {
 
   private final String placa;
   private final String marca;
-  private final int anoFabricacao;
+  protected final int anoFabricacao;
+  protected double valorLocacaoDiaria;
+  protected double precoFipe;
 
-  public Veiculo(String placa, String marca, int anoFabricacao) {
+  public Veiculo(String placa, String marca, int anoFabricacao, double valorLocacaoDiaria, double precoFipe) {
     this.placa = placa;
     this.marca = marca;
     this.anoFabricacao = anoFabricacao;
+    this.valorLocacaoDiaria = valorLocacaoDiaria;
+    this.precoFipe = precoFipe;
   }
 
   public String getPlaca() {
@@ -28,15 +31,12 @@ public abstract sealed class Veiculo implements Fretavel, Tributavel permits Cam
     return anoFabricacao;
   }
 
-  @Override
-  public void alugarVeiculo(double pesoCarga, int dias) {
-    // TODO Auto-generated method stub
-
+  public double getValorLocacaoDiaria() {
+    return valorLocacaoDiaria;
   }
 
-  @Override
-  public void calcularIpva() {
-
+  public double getPrecoFipe() {
+    return precoFipe;
   }
 
 }
